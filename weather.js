@@ -97,4 +97,5 @@ function hideWeatherCard() {
     document.getElementById('weather-card').classList.add('hidden');
     document.getElementById('style-selector').classList.add('hidden');
     document.getElementById('ai-suggestion').classList.add('hidden');
+    document.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
 }
