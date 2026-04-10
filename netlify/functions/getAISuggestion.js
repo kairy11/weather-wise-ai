@@ -1,6 +1,10 @@
 const fetch = require('node-fetch');
 
 exports.handler = async function(event) {
+    console.log('Function triggered');
+    console.log('Event body:', event.body);
+
+
     const {temp, condition, city, style} = JSON.parse(event.body);
     const apiKey = process.env.OPENAI_API_KEY;
 
