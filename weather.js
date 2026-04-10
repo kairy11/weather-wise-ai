@@ -16,8 +16,10 @@ cityInput.addEventListener('keypress', (e) => {
 });
 
 async function getWeather(city) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${CONFIG.WEATHER_API_KEY}&units=imperial`;
-
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const url = isLocal
+    ? `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${CONFIG.WEATHER_API_KEY}&units=imperial`
+    : `/.netlify/functions/getWeather?city=${city}`;
 
     showLoading(true);
     hideError();
